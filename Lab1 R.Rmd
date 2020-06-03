@@ -1,0 +1,182 @@
+---
+
+title: "Lab1"
+author: "Kevin Banh"
+date: "5/15/2020"
+output: 
+  html_document:
+    toc: yes
+    toc_float: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Lab 1
+
+## Task 1
+
+```{r}
+getwd()
+```
+
+## Task 2
+
+```{r}
+ddt=read.csv("DDT.csv")
+head(ddt)
+```
+
+
+## Task 3
+
+1. The qualitative variables are river and species.
+2. The quantitative variables are mile, length, weight, and ddt.
+3. There are 3 species: catfish, smbuffai, and lmbass.
+
+```{r}
+newdata <- subset(ddt, SPECIES == "LMBASS" & WEIGHT > 800, select=c(SPECIES, WEIGHT))
+head(newdata)
+```
+```{r}
+newdata2 <- subset(ddt, RIVER == "SCM" & DDT > 4.0, select=c(RIVER,DDT))
+head(newdata2)
+```
+Clicker questions:
+```{r}
+ddt=read.csv("DDT.csv")
+length_vector <- ddt$LENGTH
+result.mean <- mean(length_vector)
+print(paste0("Q1: ", result.mean))
+```
+
+```{r}
+ddt=read.csv("DDT.csv")
+weight_vector <- ddt$WEIGHT
+result2.std <- sd(weight_vector)
+print(paste0("Q2: ", result2.std))
+```
+3. Yes
+4. 1
+
+
+## Task 4
+
+```{r}
+riverplot <- table(ddt$RIVER)
+riverplot
+```
+
+```{r}
+install.packages("RColorBrewer", repos= "http://cran.us.r-project.org")
+library(RColorBrewer)
+coul <- brewer.pal(5,"Set2")
+barplot(riverplot, main="Frequency of Rivers",xlab = "Rivers", ylab = "Frequency",
+       col = coul)
+```
+
+```{r}
+riverplot2 <- table(ddt$RIVER,ddt$SPECIES)
+riverplot2
+```
+
+```{r}
+library(RColorBrewer)
+barplot(riverplot2, main="Number of Species by River", xlab = "Rivers", ylab = "Species", col = coul, legend = rownames(riverplot2), ylim = c(0,100))
+```
+
+## Task 5
+
+```{r}
+# Get count of species
+speciesPlot <- table(ddt$SPECIES)
+speciesPlot
+slices <- c(96,12,36)
+speciesPercent <- round(100*slices/sum(slices),1)
+lbls <- speciesPercent
+pie(slices, labels = lbls, main="Percentage of Species", col = coul)
+legend("topright", rownames(speciesPlot), fill=coul)
+```
+
+```{r}
+riverPie <- c(6,6,6,126)
+riverPercent <- round(100*riverPie/sum(riverPie),1)
+lbs <- riverPercent
+pie(riverPie,labels = lbs, main="Percentage of Rivers",
+    col = coul)
+legend("topright", rownames(riverplot),fill = coul)
+```
+
+## Task 6
+
+```{r}
+boxplot(ddt$DDT,main="Mean DDT in Rivers",ylab="River",xlab="DDT",
+        col="lightgreen",
+        border="lightgreen",
+        horizontal=TRUE,
+        notch=TRUE)
+
+```
+```{r}
+boxplot(ddt$WEIGHT,main="Mean Weight of Fish in Rivers",ylab="Fish",xlab="Weight",
+        col="orange",
+        border="brown",
+        horizontal=TRUE,
+        notch=TRUE)
+```
+
+```{r}
+boxplot(ddt$LENGTH,main="Mean Length of Fish in Rivers",ylab="Fish",xlab="Length",
+        col="aquamarine2",
+        border="darkslategrey",
+        horizontal=TRUE,
+        notch=TRUE)
+```
+
+
+## Task 7
+
+```{r}
+ddt=read.csv("DDT.csv")
+RIVER <- ddt$RIVER
+plotcol1 <- with(ddt, ifelse(RIVER== "FCM", "Green",
+                ifelse(RIVER=="LCM","Red",
+                ifelse(RIVER=="SCM","black",
+                ifelse(RIVER=="TRM","Blue","Yellow")))))
+coplot(WEIGHT~LENGTH|RIVER, data = ddt, col=plotcol1)
+```
+```{r}
+SPECIES <- ddt$SPECIES
+plotcol2 <- with(ddt, ifelse(SPECIES=="CCATFISH","green",
+        ifelse(SPECIES=="LMBASS","orange",                                 ifelse(SPECIES=="SMBUFFALO","aquamarine","black"))))
+coplot(WEIGHT~DDT|SPECIES, data=ddt, col = plotcol2)
+```
+
+
+## Task 8 
+
+```{r}
+install.packages("ggplot2", repos= "http://cran.us.r-project.org")
+library(ggplot2)
+graph <- ggplot(ddt, aes(x=SPECIES, y=WEIGHT , fill = RIVER))
+name <- ggtitle("Kevin Banh")
+graph+name+geom_boxplot()
+```
+
+```{r}
+library(ggplot2)
+name <- ggtitle("Kevin Banh")
+graph2 <- ggplot(ddt,aes(x=RIVER,y=LENGTH,fill=SPECIES,linecolor="black"))
+graph2+name+geom_violin()
+```
+
+```{r}
+library(ggplot2)
+name <-ggtitle("Kevin Banh")
+graph3 <- ggplot(ddt,aes(x=WEIGHT, y=LENGTH, fill=SPECIES,color=SPECIES))
+graph3+name+geom_point()
+```
+
+
+

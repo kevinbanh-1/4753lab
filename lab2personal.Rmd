@@ -1,0 +1,80 @@
+---
+title: "Lab2"
+author: "Kevin Banh"
+date: "5/24/2020"
+output: 
+  html_document:
+    toc: yes
+    toc_float: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+# Lab 2
+
+## Task 1
+
+```{r}
+getwd()
+```
+
+## Task 2
+
+```{r}
+# Set dird to working directory
+dird="C:\\Users\\kevin\\OneDrive\\Documents\\MATH4753\\Lab2"
+# Create a function that reads the files
+myread=function(csv){
+  fl=paste(dird,csv,sep="/")
+  read.table(fl,header=TRUE,sep=",")
+}
+epagas=myread("EPAGAS.csv")
+head(epagas)
+```
+
+## Task 3
+
+```{r}
+mpg <- c(epagas$MPG)
+z=(mpg-mean(mpg))/sd(mpg)
+mean(z)
+var(z)
+# The first result, mean(z), is essentially 0 and var(z) = 1, thus the results remain true
+```
+```{r}
+# Find z values corresponding to possible outliers
+z[abs(z)>=2 & abs(z)<=3]
+# Find elements of the vector mpg that are possible outliers
+mpg[abs(z)>=2 & abs(z)<=3]
+```
+
+```{r}
+library(lattice)
+mycol <- ifelse(abs(z)>3, "Red",
+        ifelse(abs(z)>=2 &abs(z)<=3,"Blue", "Black"))
+
+dotplot(mpg, col=mycol, main="Miles per gallon", xlab="Miles",ylab="Gallon")
+```
+
+## Task 4
+
+```{r}
+boxplot(mpg,main="Miles Per Gallon", col = "black",
+        xlab= "Miles",
+        ylab= "Gallon",
+        horizontal = TRUE,
+        notch = TRUE)
+```
+
+At least 3/4 of mpg will lie within 2 standard deviations of the mean
+```{r}
+# Find proportion of mpg that lie within 2 standard deviations of the mean
+length(mpg[abs(z)<2])/length(mpg)
+
+```
+96% of mpg lie within 2 standard deviations therefore Chebyshev's theorem holds true.
+
+The empirical rule states that at least 95% of mpg will lie within 2 standard deviations of their mean. We can see that from [1], 96% > 95% thus the empirical rule holds as well. This is because the data is relatively symmetric and not highly skewed due to a low number of outliers.
+
+

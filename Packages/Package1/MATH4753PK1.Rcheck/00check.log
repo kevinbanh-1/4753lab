@@ -1,0 +1,155 @@
+* using log directory 'C:/Users/kevin/OneDrive/Documents/MATH4753/Packages/Package1/MATH4753PK1.Rcheck'
+* using R version 4.0.2 (2020-06-22)
+* using platform: x86_64-w64-mingw32 (64-bit)
+* using session charset: ISO8859-1
+* using options '--no-manual --as-cran'
+* checking for file 'MATH4753PK1/DESCRIPTION' ... OK
+* checking extension type ... Package
+* this is package 'MATH4753PK1' version '0.1.0'
+* package encoding: UTF-8
+* checking package namespace information ... OK
+* checking package dependencies ... OK
+* checking if this is a source package ... OK
+* checking if there is a namespace ... OK
+* checking for executable files ... OK
+* checking for hidden files and directories ... OK
+* checking for portable file names ... OK
+* checking serialization versions ... OK
+* checking whether package 'MATH4753PK1' can be installed ... OK
+* checking installed package size ... OK
+* checking package directory ... OK
+* checking for future file timestamps ... OK
+* checking DESCRIPTION meta-information ... NOTE
+License components which are templates and need '+ file LICENSE':
+  MIT
+* checking top-level files ... NOTE
+Non-standard files/directories found at top level:
+  'Datasets' 'Rplots.pdf'
+* checking for left-over files ... OK
+* checking index information ... OK
+* checking package subdirectories ... OK
+* checking R files for non-ASCII characters ... OK
+* checking R files for syntax errors ... OK
+* checking whether the package can be loaded ... OK
+* checking whether the package can be loaded with stated dependencies ... OK
+* checking whether the package can be unloaded cleanly ... OK
+* checking whether the namespace can be loaded with stated dependencies ... OK
+* checking whether the namespace can be unloaded cleanly ... OK
+* checking loading without being on the library search path ... OK
+* checking dependencies in R code ... OK
+* checking S3 generic/method consistency ... OK
+* checking replacement functions ... OK
+* checking foreign function calls ... OK
+* checking R code for possible problems ... NOTE
+myboot2: warning in matrix(y, nr = n, nc = iter, byrow = TRUE): partial
+  argument match of 'nr' to 'nrow'
+myboot2: warning in matrix(y, nr = n, nc = iter, byrow = TRUE): partial
+  argument match of 'nc' to 'ncol'
+myboot2: warning in matrix(x, nr = length(x), nc = 1, byrow = TRUE):
+  partial argument match of 'nr' to 'nrow'
+myboot2: warning in matrix(x, nr = length(x), nc = 1, byrow = TRUE):
+  partial argument match of 'nc' to 'ncol'
+mycltp: warning in matrix(y, nr = n, nc = iter, byrow = TRUE): partial
+  argument match of 'nr' to 'nrow'
+mycltp: warning in matrix(y, nr = n, nc = iter, byrow = TRUE): partial
+  argument match of 'nc' to 'ncol'
+mycltp: warning in matrix(c(1, 1, 2, 3), nr = 2, nc = 2, byrow = TRUE):
+  partial argument match of 'nr' to 'nrow'
+mycltp: warning in matrix(c(1, 1, 2, 3), nr = 2, nc = 2, byrow = TRUE):
+  partial argument match of 'nc' to 'ncol'
+myboot2: no visible global function definition for 'quantile'
+myboot2: no visible global function definition for 'hist'
+myboot2: no visible global function definition for 'abline'
+myboot2: no visible global function definition for 'segments'
+myboot2: no visible global function definition for 'text'
+mychisim: no visible global function definition for 'rnorm'
+mychisim: no visible binding for global variable 'var'
+mychisim: no visible global function definition for 'hist'
+mychisim: no visible global function definition for 'lines'
+mychisim: no visible global function definition for 'density'
+mychisim: no visible global function definition for 'curve'
+mychisim: no visible global function definition for 'dchisq'
+mychisim: no visible binding for global variable 'x'
+mychisim: no visible global function definition for 'legend'
+mychisim: no visible global function definition for 'sd'
+myci: no visible global function definition for 'sd'
+myci: no visible global function definition for 'qt'
+mycltp: no visible global function definition for 'rpois'
+mycltp: no visible global function definition for 'hist'
+mycltp: no visible global function definition for 'layout'
+mycltp: no visible global function definition for 'rainbow'
+mycltp: no visible global function definition for 'curve'
+mycltp: no visible global function definition for 'dnorm'
+mycltp: no visible global function definition for 'barplot'
+mycltp: no visible global function definition for 'dpois'
+mymlbeta : lfun: no visible global function definition for 'dbeta'
+mymlbeta: no visible global function definition for 'contour'
+mymlbeta: no visible global function definition for 'abline'
+mymlbeta: no visible global function definition for 'points'
+mymlbeta: no visible global function definition for 'axis'
+myncurve: no visible global function definition for 'curve'
+myncurve: no visible global function definition for 'dnorm'
+myncurve: no visible binding for global variable 'x'
+myncurve: no visible global function definition for 'polygon'
+myncurve: no visible global function definition for 'pnorm'
+myncurve: no visible global function definition for 'text'
+mypvalue: no visible global function definition for 'pt'
+mypvalue: no visible global function definition for 'curve'
+mypvalue: no visible global function definition for 'dt'
+mypvalue: no visible binding for global variable 'x'
+mypvalue: no visible global function definition for 'neg'
+mypvalue: no visible global function definition for 'polygon'
+mypvalue: no visible global function definition for 'qt'
+mypvalue: no visible global function definition for 'abline'
+mypvalue: no visible global function definition for 'axis'
+mypvalue: no visible global function definition for 'text'
+mysample: no visible global function definition for 'barplot'
+mysample: no visible global function definition for 'rainbow'
+Undefined global functions or variables:
+  abline axis barplot contour curve dbeta dchisq density dnorm dpois dt
+  hist layout legend lines neg pnorm points polygon pt qt quantile
+  rainbow rnorm rpois sd segments text var x
+Consider adding
+  importFrom("grDevices", "rainbow")
+  importFrom("graphics", "abline", "axis", "barplot", "contour", "curve",
+             "hist", "layout", "legend", "lines", "points", "polygon",
+             "segments", "text")
+  importFrom("stats", "dbeta", "dchisq", "density", "dnorm", "dpois",
+             "dt", "pnorm", "pt", "qt", "quantile", "rnorm", "rpois",
+             "sd", "var")
+to your NAMESPACE file.
+* checking Rd files ... NOTE
+prepare_Rd: myboot2.Rd:22-24: Dropping empty section \value
+* checking Rd metadata ... OK
+* checking Rd line widths ... NOTE
+Rd file 'reparwbl.Rd':
+  \examples lines wider than 100 characters:
+     reparwbl(2,5) # 2 is the shape, 5 is the scale, use the ar and br values generated from this function for pweibull
+
+These lines will be truncated in the PDF manual.
+* checking Rd cross-references ... OK
+* checking for missing documentation entries ... OK
+* checking for code/documentation mismatches ... OK
+* checking Rd \usage sections ... OK
+* checking Rd contents ... OK
+* checking for unstated dependencies in examples ... OK
+* checking examples ... ERROR
+Running examples in 'MATH4753PK1-Ex.R' failed
+The error most likely occurred in:
+
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: mypvalue
+> ### Title: Plot of a one sample t-test
+> ### Aliases: mypvalue
+> 
+> ### ** Examples
+> 
+> t0 <- qt(0.05/2,df=20)
+>           mypvalue(t0,max,n=21,alpha=0.05)
+Error in neg(max) : could not find function "neg"
+Calls: mypvalue -> curve
+Execution halted
+* checking for non-standard things in the check directory ... OK
+* checking for detritus in the temp directory ... OK
+* DONE
+Status: 1 ERROR, 5 NOTEs

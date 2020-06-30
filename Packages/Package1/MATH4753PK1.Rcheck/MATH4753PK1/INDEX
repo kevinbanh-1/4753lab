@@ -1,0 +1,10 @@
+myboot2                 Bootstrap Function for Calculating Intervals
+mychisim                mychisim
+myci                    1 Sample Confidence Interval
+mycltp                  CLT Poisson Distribution
+mymlbeta                Maximum Likelihood Estimate of a Beta
+                        Distribution
+myncurve                myncurve
+mypvalue                Plot of a one sample t-test
+mysample                mysample
+reparwbl                reparamWeibull
